@@ -1,0 +1,102 @@
+<html>
+<head>
+    <title>Book Manager App</title>
+    <style>
+        /* Reset some basic styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f6fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #2f3640;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            padding: 8px 12px;
+            border: 1px solid #dcdde1;
+            border-radius: 5px;
+            width: 200px;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #718093;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #273c75;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #40739e;
+        }
+
+        .book-container {
+            background-color: white;
+            width: 350px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .book-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2f3640;
+        }
+
+        .update-form, .delete-form {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Add Book</h1>
+    <form method="POST" action="/">
+        <input type="text" name="title" placeholder="Book Title">
+        <input type='submit' value="Add">
+    </form>
+
+    <h1>Books</h1>
+    {% for book in books %}
+    <div class="book-container">
+        <p class="book-title">{{book.title}}</p>
+        <form class="update-form" method="POST" action="./update">
+            <input type="hidden" value="{{book.title}}" name="oldtitle">
+            <input type="text" value="{{book.title}}" name="newtitle">
+            <input type="submit" value="Update">
+        </form>
+        <form class="delete-form" method="POST" action="./delete">
+            <input type="hidden" value="{{book.title}}" name="title">
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+    {% endfor %}
+</body>
+</html>
