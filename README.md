@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 "# Bookmanager-System" 
 
->>>>>>> 9e2e65e773f2393a3db4ada92ab3d78212591961
 "# Book Manager
 
 A simple and elegant Flask-based web application for managing your book collection. This application allows users to add, update, and view books in a SQLite database.
@@ -87,15 +84,11 @@ Feel free to fork this repository and submit pull requests. You can also open is
 This project is open source and available under the MIT License.
 
 ## Author
-
-<<<<<<< HEAD
-[Your Name]
-=======
 Ankan Pal
->>>>>>> 9e2e65e773f2393a3db4ada92ab3d78212591961
 
 ## Acknowledgments
 
 - Flask Documentation
 - SQLAlchemy Documentation
 - Python Community" 
+
